@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+
+{% block title_head %}
+<title>Inicio</title>
+{% endblock title_head %}
+
+
+{% block h1_header %}
+
+Home!!
+
+{% if not request.user.is_authenticated %}      
+{% else %}
+<p> Bienvenido!! {{user}}</p>
+{% endif %}
+
+
+{% endblock h1_header %}
+
+
+
+

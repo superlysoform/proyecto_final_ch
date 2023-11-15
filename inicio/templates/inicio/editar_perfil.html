@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title> Editar Perfil </title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Editar Perfil
+{% endblock h1_header %}
+
+{% block p_header %}{% endblock p_header %}
+
+{% block portfolio %}{% endblock portfolio %}
+{% block call_to_action %}{% endblock call_to_action %}
+{% block about %}{% endblock about %}
+{% block services %}{% endblock services %}
+{% block Contact %}{% endblock Contact %}
+
+{% block main %}
+
+<form action=" {% url "editar_perfil" %} " method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <table>{{form_editar}}</table>
+    
+    <input type="submit" value="Editar">
+</form>
+
+<a href=" {% url "cambiar_pwd" %} ">Cambiar Contraseña</a>
+
+{% endblock main %}
+
+
+
+

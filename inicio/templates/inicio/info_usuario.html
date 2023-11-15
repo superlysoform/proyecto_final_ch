@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Informacion de Usuario</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Informacion de Usuario 
+{% endblock h1_header %}
+
+{% block portfolio %}{% endblock portfolio %}
+{% block call_to_action %}{% endblock call_to_action %}
+{% block about %}{% endblock about %}
+{% block services %}{% endblock services %}
+
+{% block main %}
+<ul>
+    <li>Nombre: {{user.fist_name}} </li>
+    <li>Apellido: {{user.last_name}} </li>
+    {% comment %} <li>Usuario: {{user.user}} </li>
+    <li>Contraseña: {{user.pwd}} </li>
+    <li>Emial: {{user.mail}} </li> {% endcomment %}
+
+</ul>
+
+{% endblock main %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Eliminiar Camiseta</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Eliminar Producto (Camiseta)
+{% endblock h1_header %}
+
+{% block portfolio %}{% endblock portfolio %}
+{% block call_to_action %}{% endblock call_to_action %}
+{% block about %}{% endblock about %}
+{% block services %}{% endblock services %}
+
+
+{% block main %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    Desesa eliminar este Producto ? {{camiseta.marca}} - {{camiseta.equipo}}
+    <input type="submit" value="Confirmar">
+</form>
+
+{% endblock main %}
+
+
+
+

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Camisetas</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Stock de Camisetas!
+{% endblock h1_header %}
+
+{% block main %}
+<h2>
+    <a href=" {% url "crear_camiseta" %} ">Crear Camiseta</a>
+</h2>
+
+
+ {% comment %} <form action="">
+    {{formulario}}
+    <input type="submit" value="Buscar">
+</form> {% endcomment %}
+
+{% if listado_de_camisetas %}
+<ul>
+    {% for camiseta in listado_de_camisetas %}
+    <li>        
+        <a href=" {% url "detalle_camiseta" camiseta.id  %} ">Detalle Camiseta</a> | <a href=" {% url "actualizar_camiseta" camiseta.id %} ">Actualizar</a>  | <a href=" {% url "eliminar_camiseta" camiseta.id  %} ">eliminar</a> | 
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p> - No hay Stock - </p>
+{% endif %}
+
+{% endblock main %}
+
+
+{% block call_to_action %}{% endblock call_to_action %}
+{% block about %}{% endblock about %}
+{% block services %}{% endblock services %}
+
+
+

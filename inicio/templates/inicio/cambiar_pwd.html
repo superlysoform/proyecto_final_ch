@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title> Cambiar Contraseña </title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Cambiar Contraseña
+{% endblock h1_header %}
+
+{% block portfolio %}{% endblock portfolio %}
+{% block call_to_action %}{% endblock call_to_action %}
+{% block about %}{% endblock about %}
+{% block services %}{% endblock services %}
+
+{% block main %}
+
+<form action=" {% url "cambiar_pwd" %} " method="POST">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+
+    <input type="submit" value="Confirmar Cambio">
+
+</form>
+
+
+{% endblock main %}
+
+
+
+
