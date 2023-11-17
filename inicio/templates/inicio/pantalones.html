@@ -9,12 +9,14 @@ Stock de Pantalones!
 {% endblock h1_header %}
 
 {% block main %}
-
+<h1></h1>
+<p></p>
 <form action="">
-    {% comment %} <input type="text" name="marca" placeholder="Buscar de producto" > {% endcomment %}
-    {{formulario}}
-    <input type="submit" value="Buscar">
+    {{form_pantalones}}
+    <input type="submit" value="Buscar Pantalones">
 </form>
+<p></p>
+<h1></h1>
 
 {% if listado_de_pantalones %}
 <ul>

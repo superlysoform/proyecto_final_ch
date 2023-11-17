@@ -48,7 +48,9 @@
                             {% if request.user.datosextra.avatar.url %}
                             <img src={{request.user.datosextra.avatar.url}} alt="avatar" height="30px">
                             {% endif %}
+
                         <li class="nav-item"><a class="nav-link" href=" {% url "logout" %} ">Logout</a></li>
+
 
                         {% endif %} 
 

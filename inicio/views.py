@@ -16,17 +16,7 @@ from inicio.models import Camiseta, Pantalon, Medias, DatosExtra
 from inicio.forms import FormularioCreacionUsuario
 from inicio.forms import CrearCamisetaForm, CrearPantalonForm, CrearMediasForm, BusquedaCamisetaForm, BusquedaPantalonForm, BusquedaMediasForm, ActualizarCamisetaForm,EditarPerfilForm
 
-class ListadoCamisetas(ListView):
-    model = Camiseta
-    context_object_name = "listado_de_camisetas"
-    template_name = "inicio/camisetas.html"
 
-class CamisetaCrearView(CreateView):
-    model = Camiseta
-    template_name = "inicio/crear_camiseta.html"
-    fields = ("marca", "equipo", "descripcion", "anio")
-    success_url = reverse_lazy("camisetas")
-    
 
 
 def inicio(request):
@@ -166,11 +156,16 @@ def crear_medias(request):
 #     camiseta = Camiseta.objects.get(id=camiseta_id)
 #     return render(request, "inicio/detalle_camiseta.html", {"camiseta": camiseta})  
 
+class CamisetaCrearView(CreateView):
+    model = Camiseta
+    template_name = "inicio/crear_camiseta.html"
+    fields = ["marca", "equipo", "descripcion", "anio"]
+    success_url = reverse_lazy("camisetas")
 
 class ActualizarCamiseta(LoginRequiredMixin, UpdateView):
     model = Camiseta
     template_name = "inicio/actualizar_camiseta.html"
-    fields = ("marca", "equipo", "descripcion", "anio")
+    fields = ["marca", "equipo", "descripcion", "anio"]
     success_url = reverse_lazy("camisetas")
 
 class DetalleCamiseta(LoginRequiredMixin, DetailView):
@@ -181,6 +176,14 @@ class EliminarCamiseta(LoginRequiredMixin, DeleteView):
     model = Camiseta
     template_name = "inicio/eliminar_camiseta.html"
     success_url = reverse_lazy("camisetas")
+    
+class ListadoCamisetas(ListView):
+    model = Camiseta
+    context_object_name = "listado_de_camisetas"
+    template_name = "inicio/camisetas.html"
+        
+    
+    
 
 def login(request):
     
@@ -247,3 +250,8 @@ def editar_perfil(request):
 class CambiarContraseña(PasswordChangeView):
     template_name = "inicio/cambiar_pwd.html"
     success_url = reverse_lazy("editar_perfil")
+    
+
+class Perfil(ListView):
+    template_name = "inicio/perfil.html"
+    success_url = reverse_lazy("perfil")    

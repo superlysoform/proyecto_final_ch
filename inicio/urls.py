@@ -1,7 +1,7 @@
 from django.urls import path
 # from inicio.views import inicio, camisetas, pantalones, medias, crear_camiseta, crear_pantalon, crear_medias, actualizar_camiseta, detalle_camiseta, ListadoCamisetas, CamisetaCrearView, ActualizarCamiseta, DetalleCamiseta ,EliminarCamiseta, login, registro
 from inicio.views import inicio, pantalones, medias, crear_pantalon, crear_medias
-from inicio.views import ListadoCamisetas, CamisetaCrearView, ActualizarCamiseta, DetalleCamiseta ,EliminarCamiseta, login, registro, editar_perfil,CambiarContraseña
+from inicio.views import ListadoCamisetas, CamisetaCrearView, ActualizarCamiseta, DetalleCamiseta ,EliminarCamiseta, login, registro, editar_perfil,CambiarContraseña, Perfil
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -16,8 +16,11 @@ urlpatterns = [
     path("registrarse/", registro, name="registrarse"),
     path("editar_perfil/", editar_perfil, name="editar_perfil"),
     path("editar_perfil/password/", CambiarContraseña.as_view(), name="cambiar_pwd"),
-
     
+    path("editar_perfil/perfil/", Perfil.as_view(), name="perfil"),
+
+
+
 
     path("logout/", LogoutView.as_view(template_name="inicio/logout.html"), name="logout"),
 
@@ -29,7 +32,7 @@ urlpatterns = [
     path("camisetas/", ListadoCamisetas.as_view(), name="camisetas"),
     
     # path("camisetas/crear/", crear_camiseta, name="crear_camiseta"),
-    path("camisetas/crear/", CamisetaCrearView.as_view(), name="crear_camiseta"),
+    path("camisetas/", CamisetaCrearView.as_view(), name="crear_camiseta"),
     
     # path("camisetas/<int:camiseta_id>/", detalle_camiseta , name="detalle_camiseta"),
     path("camisetas/<int:pk>/", DetalleCamiseta.as_view() , name="detalle_camiseta"),

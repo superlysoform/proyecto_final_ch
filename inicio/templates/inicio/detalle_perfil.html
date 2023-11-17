@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-<title>Creacion de Camiseta</title>
+<title>Informacion del Perfil</title>
 {% endblock title_head %}
 
 {% block h1_header %}
-Creacion de Camiseta
+Informacion del Perfil
 {% endblock h1_header %}
 
 {% block portfolio %}{% endblock portfolio %}
@@ -13,16 +13,8 @@ Creacion de Camiseta
 {% block about %}{% endblock about %}
 {% block services %}{% endblock services %}
 
-
 {% block main %}
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <table>{{form}}</table>
-    
-    <input type="submit" value="Crear">
-
-</form>
 
 {% endblock main %}
 

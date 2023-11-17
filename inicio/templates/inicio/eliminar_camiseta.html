@@ -16,9 +16,9 @@ Eliminar Producto (Camiseta)
 
 {% block main %}
 
-<form action="" method="post">
+<form action="" method="POST">
     {% csrf_token %}
-    Desesa eliminar este Producto ? {{camiseta.marca}} - {{camiseta.equipo}}
+    Desesa eliminar este Producto ? - {{camiseta.marca}} - {{camiseta.equipo}}
     <input type="submit" value="Confirmar">
 </form>
 

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class FormularioCreacionUsuario(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(label="Ingrese Correo")
     password1 = forms.CharField(label="Ingrese Contraseña", widget=forms.PasswordInput)
     password2 = forms.CharField(label="Repetir Contraseña", widget=forms.PasswordInput)
     
@@ -38,21 +38,17 @@ class CrearCamisetaForm(forms.Form):
     marca = forms.CharField(max_length=30)
     equipo = forms.CharField(max_length=30)
     descripcion = forms.CharField(max_length=30)
-    anio = forms.DateField()
+    anio = forms.IntegerField()
     
 class CrearPantalonForm(BaseCamisetaForm):
     ...
     
-class CrearMediasForm(forms.Form):
-    marca = forms.CharField(max_length=30)
-    equipo = forms.CharField(max_length=30)
-    descripcion = forms.CharField(max_length=30)
-    anio = forms.DateField()
+class CrearMediasForm(BaseCamisetaForm):
+    ...
     
     
 class BusquedaCamisetaForm(forms.Form):
     marca = forms.CharField(max_length=30, required=False)
-    equipo = forms.CharField(max_length=30, required=False)
 
 class BusquedaPantalonForm(forms.Form):
     marca = forms.CharField(max_length=30, required=False)
@@ -64,7 +60,7 @@ class ActualizarCamisetaForm(forms.Form):
     marca = forms.CharField(max_length=30)
     equipo = forms.CharField(max_length=30)
     descripcion = forms.CharField(max_length=30)
-    anio = forms.DateField()
+    anio = forms.IntegerField()
     
     
 

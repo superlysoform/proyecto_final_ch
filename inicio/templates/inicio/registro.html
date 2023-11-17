@@ -18,6 +18,7 @@ Registracion
 <form action=" {% url "login" %} " method="POST">
     {% csrf_token %}
     <table>{{form_registro}}</table>
+    <p></p>
     <input type="submit" value="Registrarse">
 </form>
 

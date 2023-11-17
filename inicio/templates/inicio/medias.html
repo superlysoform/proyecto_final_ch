@@ -9,17 +9,22 @@ Stock de Medias!
 {% endblock h1_header %}
 
 {% block main %}
-
+<h1></h1>
+<p></p>
 <form action="">
-    {% comment %} <input type="text" name="marca" placeholder="Buscar de producto" > {% endcomment %}
     {{formulario}}
-    <input type="submit" value="Buscar">
+    <input type="submit" value="Buscar Medias">
 </form>
+<p></p>
+<h1></h1>
+
 
 {% if listado_de_medias %}
+<h5>Stock Actual</h5>
+
 <ul>
     {% for medias in listado_de_medias %}
-    <li>{{medias}}</li>
+    <li>{{medias}}</li> 
     {% endfor %}
 </ul>
 {% else %}
