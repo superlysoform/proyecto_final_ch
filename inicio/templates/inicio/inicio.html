@@ -6,12 +6,11 @@
 
 
 {% block h1_header %}
-
-Home!!
+Bienvenido !
 
 {% if not request.user.is_authenticated %}      
 {% else %}
-<p> Bienvenido!! {{user}}</p>
+<h2>    Ha iniciado sesion, {{user}}</h2>
 {% endif %}
 
 

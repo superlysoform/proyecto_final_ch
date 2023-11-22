@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-<title>Login </title>
+<title> Registracion </title>
 {% endblock title_head %}
 
 {% block h1_header %}
-Login
+Registracion
 {% endblock h1_header %}
 
 {% block portfolio %}{% endblock portfolio %}
@@ -15,10 +15,11 @@ Login
 
 {% block main %}
 
-<form action=" {% url "login" %} " method="POST">
+<form action=" {% url "registrarse" %} " method="POST">
     {% csrf_token %}
-    <table>{{form_login}}</table>
-    <input type="submit" value="Iniciar Sesion">
+    <table>{{form_registro}}</table>
+    <p></p>
+    <input type="submit" value="Registrarse">
 </form>
 
 {% endblock main %}

@@ -9,6 +9,7 @@ Stock de Medias!
 {% endblock h1_header %}
 
 {% block main %}
+
 <h1></h1>
 <p></p>
 <form action="">
@@ -19,21 +20,31 @@ Stock de Medias!
 <h1></h1>
 
 
-{% if listado_de_medias %}
-<h5>Stock Actual</h5>
 
+{% if listado_de_medias %}
+<h5>Stock Actual - Medias</h5>
 <ul>
     {% for medias in listado_de_medias %}
-    <li>{{medias}}</li> 
+    <li>        
+        <a href=" {% url "detalle_medias" medias.id  %} ">Detalle medias</a> | <a href=" {% url "actualizar_medias" medias.id %} ">Actualizar</a>  |
+
+    </li>
     {% endfor %}
 </ul>
 {% else %}
-<p> - No hay Stock - </p>
+<p></p>
+<p> - No hay Stock / No se he encuentra el Producto</p>
+
 {% endif %}
+
+
 
 {% endblock main %}
 
 
+{% block portfolio %}{% endblock portfolio %}
 {% block call_to_action %}{% endblock call_to_action %}
 {% block about %}{% endblock about %}
 {% block services %}{% endblock services %}
+{% block Crear_Camiseta %}{% endblock Crear_Camiseta %}
+{% block Crear_Medias %}{% endblock Crear_Medias %}

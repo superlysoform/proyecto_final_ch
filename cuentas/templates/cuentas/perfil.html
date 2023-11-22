@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Perfil</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Perfil
+{% endblock h1_header %}
+
+{% block portfolio %}{% endblock portfolio %}
+{% block call_to_action %}{% endblock call_to_action %}
+{% block about %}{% endblock about %}
+{% block services %}{% endblock services %}
+
+{% block main %}
+{% if object_list %}
+
+  
+
+  {% for perfil in object_list %}
+  
+  <li> 
+    {{request.user.username}}
+    {{request.user.first_name}}
+    </li>
+    
+
+    <li> {% if perfil.bio %}
+      {% else %}
+        <p>No hay Biografia disponible.</p>
+      {% endif %}    
+    </li>
+    <p></p>
+      {% if perfil.avatar %}
+      <p>Avatar</p>
+        <img src="{{ perfil.avatar.url }}" alt="Avatar" height="100px"> 
+      {% else %}
+        <p>No hay avatar disponible.</p>
+      {% endif %}
+  {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron datos de perfil.</p>
+{% endif %}
+
+
+
+{% endblock main %}
+
+
+
+

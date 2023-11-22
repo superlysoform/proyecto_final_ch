@@ -9,20 +9,28 @@ Stock de Camisetas!
 {% endblock h1_header %}
 
 {% block main %}
-<h4>
-    <p></p>
-    <a href=" {% url "crear_camiseta" %} ">Crear Camiseta</a>
-    <p></p>
-</h4>
 
-<p></p>
-<form action="">
-    {{form}}
-    <input type="submit" value="Busqueda por Marca">
-</form>
 
-<p></p>
+
+{% comment %} <h1></h1>
+    <form action="">
+    {{formulario}}
+    <input type="submit" value="Buscar Camisetas">
+    </form> 
+<h1></h1> {% endcomment %}
+
 <h1></h1>
+<form action=" {% url "camisetas" %} ">
+
+    <input type="text" name="marca" >
+    <input type="submit" value="Buscar Camisetas x marca" >
+
+</form> 
+
+
+<h1></h1>
+
+
 
 {% if listado_de_camisetas %}
 <h5>Stock Actual</h5>
@@ -45,6 +53,8 @@ Stock de Camisetas!
 {% block call_to_action %}{% endblock call_to_action %}
 {% block about %}{% endblock about %}
 {% block services %}{% endblock services %}
+{% block Crear_Camiseta %}{% endblock Crear_Camiseta %}
+{% block Crear_Medias %}{% endblock Crear_Medias %}
 
 
 

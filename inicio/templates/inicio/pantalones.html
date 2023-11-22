@@ -12,13 +12,15 @@ Stock de Pantalones!
 <h1></h1>
 <p></p>
 <form action="">
-    {{form_pantalones}}
-    <input type="submit" value="Buscar Pantalones">
+    {{formulario}}
+    <input type="submit" value="Busqueda por Marca">
 </form>
 <p></p>
 <h1></h1>
 
 {% if listado_de_pantalones %}
+<h5>Stock Actual - Pantalones</h5>
+
 <ul>
     {% for pantalon in listado_de_pantalones %}
     <li>{{pantalon}}</li>

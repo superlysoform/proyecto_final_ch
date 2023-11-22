@@ -30,9 +30,9 @@
                 <a class="navbar-brand" href="{% url "camisetas" %}">Camisetas</a>
                 <a class="navbar-brand" href="{% url "pantalones" %}">Pantalones</a>
                 <a class="navbar-brand" href="{% url "medias" %}">Medias</a>
-                <a class="navbar-brand" href="{% url "crear_camiseta" %}">Crear Camiseta</a>
+                {% comment %} <a class="navbar-brand" href="{% url "crear_camiseta" %}">Ingresar Camiseta</a> {% endcomment %}
                 {% comment %} <a class="navbar-brand" href="{% url "crear_pantalon" %}">Crear Pantalon</a> {% endcomment %}
-                <a class="navbar-brand" href="{% url "crear_medias" %}">Crear Medias</a>
+                {% comment %} <a class="navbar-brand" href="{% url "crear_medias" %}">Ingresar Medias</a> {% endcomment %}
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0"> 
@@ -45,20 +45,23 @@
                         {% else %}
                          
                         <li class="nav-item"><a class="nav-link" href=" {% url "editar_perfil" %} ">{{request.user.username}}</a></li>
+                        
                             {% if request.user.datosextra.avatar.url %}
                             <img src={{request.user.datosextra.avatar.url}} alt="avatar" height="30px">
                             {% endif %}
-
                         <li class="nav-item"><a class="nav-link" href=" {% url "logout" %} ">Logout</a></li>
 
 
                         {% endif %} 
 
-                        <li class="nav-item"><a class="nav-link" href="#about" height="10px">About</a></li>
                         {% comment %} <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></i> {% endcomment %}
+                        
+                        <li class="nav-item"><a class="nav-link"  href="{% url "crear_camiseta" %}">Ingresar Camiseta</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{% url "crear_medias" %}">Ingresar Medias</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{% url "about" %}">about</a></li>
 
-                        {% comment %} <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>  {% endcomment %}
+
+                        {% comment %} <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>  {% endcomment %}
                     </ul>
                 </div>
             </div>
@@ -77,38 +80,53 @@
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        {% block p_header %}
-                        
-                        <p class="text-white-75 mb-5">  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea ipsum temporibus illum incidunt sunt reprehenderit, nobis id amet, voluptatem, unde iste itaque repudiandae reiciendis accusantium! Reiciendis vitae laborum saepe quis.  </p>
-                        <a class="btn btn-primary btn-xl" href="{% url "inicio" %}">Inicio</a>
+                        {% block p1_header %}
+                            
+                        <p class="text-white-75 mb-5">  Lorem ipsum dolor</p>
 
                         
-                        {% endblock p_header %}
+                        {% endblock p1_header %}
                     </div>
                 </div>
             </div>
         </header>
-        <!-- About-->
+        <!-- Stock Camiseta-->
         <main>
             {% block main %}{% endblock main %}
         </main>
-        {% block about %}  
-        <section class="page-section bg-primary" id="about">
+        {% block Crear_Camiseta %} 
+        <section class="page-section bg-primary" id="crear_camisetas">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">We've got what you need!</h2>
+                        <h2 class="text-white mt-0">Crear Stock - Camisetas - </h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
-                        <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
+                        <p class="text-white-75 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue nisi vitae suscipit tellus mauris a.</p>
+                        <a class="btn btn-light btn-xl" href="{% url "crear_camiseta" %}">Ingresar Camiseta</a> 
                     </div>
                 </div>
             </div>
         </section>
-        {% endblock about %}
+        {% endblock Crear_Camiseta  %}
+        <!-- Stock Medias-->
+        {% block Crear_Medias %}
+        <section class="page-section bg-dark text-white" id="crear_medias">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">Crear Stock - Medias - </h2>
+                        <hr class="divider divider-light" />
+                        <p class="text-white-75 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Congue nisi vitae suscipit tellus mauris a.</p>
+                        <a class="btn btn-light btn-xl" href="{% url "crear_medias" %}">Ingresar medias</a> 
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endblock Crear_Medias %}
+        
         <!-- Services-->
         {% block services %}
-        <section class="page-section" id="services">
+        {% comment %} <section class="page-section" id="services">
             <div class="container px-4 px-lg-5">
                 <h2 class="text-center mt-0">At Your Service</h2>
                 <hr class="divider" />
@@ -143,7 +161,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> {% endcomment %}
         {% endblock services %}
         <!-- Portfolio-->
         {% block portfolio %}
@@ -210,12 +228,12 @@
         {% endblock portfolio %}
         <!-- Call to action-->
         {% block call_to_action %}
-        <section class="page-section bg-dark text-white">
+        {% comment %} <section class="page-section bg-dark text-white">
             <div class="container px-4 px-lg-5 text-center">
                 <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
                 <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
             </div>
-        </section>
+        </section> {% endcomment %}
         {% endblock call_to_action %}
         <!-- Contact-->
         {% block Contact %}

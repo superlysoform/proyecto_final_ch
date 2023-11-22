@@ -8,21 +8,28 @@
 Detalles de Camiseta 
 {% endblock h1_header %}
 
-{% block portfolio %}{% endblock portfolio %}
-{% block call_to_action %}{% endblock call_to_action %}
-{% block about %}{% endblock about %}
-{% block services %}{% endblock services %}
+
 
 {% block main %}
 <ul>
     <li>Marca: {{camiseta.marca}} </li>
     <li>Equipo: {{camiseta.equipo}} </li>
-    <li>Descripcion: {{camiseta.descripcion}} </li>
+    <li>Descripcion: {{camiseta.descripcion | safe }} </li>
     <li>Año: {{camiseta.anio}} </li>
 
 </ul>
 
+{% comment %} <h3><a href=" {% url "camiseta" %} ">Volver al menu </a></h3> {% endcomment %}
+
+
 {% endblock main %}
+
+{% block portfolio %}{% endblock portfolio %}
+{% block call_to_action %}{% endblock call_to_action %}
+{% block about %}{% endblock about %}
+{% block services %}{% endblock services %}
+{% block Crear_Camiseta %}{% endblock Crear_Camiseta %}
+{% block Crear_Medias %}{% endblock Crear_Medias %}
 
 
 
